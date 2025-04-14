@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'yourdockerhubusername/jenkins-ci-cd-demo'
+        IMAGE_NAME = 'nikhil6372/jenkins-ci-cd-demo'
     }
 
     stages {
         stage('Build Image') {
             steps {
                 script {
-                    docker.build("${IMAGE_NAME}")
+                    docker.build("${nikhil6372/jenkins-ci-cd-demo}")
                 }
             }
         }
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 withDockerRegistry(credentialsId: 'dockerhub-credentials') {
                     script {
-                        docker.image("${IMAGE_NAME}").push()
+                        docker.image("${nikhil6372/jenkins-ci-cd-demo}").push()
                     }
                 }
             }
